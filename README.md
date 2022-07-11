@@ -50,11 +50,14 @@ Issues faced:
   3. After the execution a report is generated with the name Spark.html under target folder in the IDE. It looks like this:
   
   ![image](https://user-images.githubusercontent.com/15263937/178340061-51b11679-b324-4c00-a77e-408426ad2808.png)
-
+  
+  4. Travis CI integration was implemented but build is failing due to an error related to maven surefire
+  
 ### To be improved:
  - Use the encoded token as a system variable, this way the encryption will not be necessary
+ - Fix Travis CI Build
 
-## Frameworks used:
+### Frameworks used:
  - Rest Assured: https://rest-assured.io/
  - TestNG: https://testng.org/doc/index.html
  - Extent Reports: https://www.extentreports.com/
