@@ -118,7 +118,7 @@ public class myTest {
     }
 
     @Test(priority = 4, dependsOnMethods = {"createNewGist"})
-    public void UpdateGist() {
+    public void updateGist() {
 
         Response response=
                 given()
@@ -144,7 +144,7 @@ public class myTest {
     }
 
     @Test(priority = 5, dependsOnMethods = {"UpdateGist"})
-    public void DeleteGist() {
+    public void deleteGist() {
 
         Response response = given()
                 .header("Accept", "application/vnd.github?+json")
@@ -164,7 +164,7 @@ public class myTest {
     }
 
     @Test(priority = 6, dependsOnMethods = {"DeleteGist"})
-    public void CheckGistIsDeleted() {
+    public void checkGistIsDeleted() {
 
         Response response = given()
                 .header("Accept", "application/vnd.github?+json")
@@ -184,7 +184,7 @@ public class myTest {
     }
 
     @Test(priority = 7)
-    public void StarAPublicGist() {
+    public void starAPublicGist() {
 
         Response response = given()
                 .header("Accept", "application/vnd.github?+json")
@@ -204,7 +204,7 @@ public class myTest {
     }
 
     @Test(priority = 8)
-    public void UnstarAPublicGist() {
+    public void unstarAPublicGist() {
 
         given()
                 .header("Accept", "application/vnd.github?+json")
@@ -222,7 +222,7 @@ public class myTest {
     }
 
     @Test(priority = 9)
-    public void ListStarredGists() {
+    public void listStarredGists() {
 
         Response response = given()
                 .header("Accept", "application/vnd.github?+json")
