@@ -1,6 +1,10 @@
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItems;
 import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.assertNotSame;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.Status;
@@ -8,10 +12,13 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import lombok.val;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.Base64;
+import java.util.List;
+import java.util.Optional;
 
 public class myTest {
 
@@ -40,7 +47,7 @@ public class myTest {
     }
 
     @Test(priority = 1)
-    void getRequest() {
+    void listPublicGists() {
         Response response = given()
                 .header("Accept", "application/vnd.github+json")
                 .header("Authorization", token)
@@ -52,15 +59,17 @@ public class myTest {
 
         assertEquals(200, response.statusCode());
 
+        System.out.println(response.getBody().asString());
+
         extent.attachReporter(spark);
-        extent.createTest("MyFirstTest")
-                .log(Status.PASS, "It is possible to get a request");
+        extent.createTest("listPublicGists")
+                .log(Status.PASS, "It is possible to list public gists");
         extent.flush();
 
     }
 
     @Test(priority = 2)
-    void getListForSpecificUser() {
+    void getGistListForSpecificUser() {
         Response response = given()
                 .header("Accept", "application/vnd.github?+json")
                 .header("Authorization", token)
@@ -72,15 +81,17 @@ public class myTest {
 
         assertEquals(200, response.statusCode());
 
+        System.out.println(response.getBody().asString());
+
         extent.attachReporter(spark);
-        extent.createTest("MyFirstTest")
-                .log(Status.PASS, "It is possible to get a request");
+        extent.createTest("getGistListForSpecificUser")
+                .log(Status.PASS, "It is possible to list all my gists");
         extent.flush();
 
     }
 
     @Test(priority = 3)
-    public void createGist() {
+    public void createNewGist() {
 
         Response response = given()
                 .header("Accept", "application/vnd.github?+json")
@@ -96,21 +107,23 @@ public class myTest {
         gistId =  response.getBody().jsonPath().get("id");
 
         assertEquals(201, response.statusCode());
+        assertEquals("Example of a gist", response.getBody().jsonPath().get("description"));
+        assertNotSame("Update my Hello World", response.getBody().jsonPath().get("description"));
 
         extent.attachReporter(spark);
-        extent.createTest("MyFirstTest")
-                .log(Status.PASS, "It is possible to get a request");
+        extent.createTest("createNewGist")
+                .log(Status.PASS, "It is possible to create a new gist");
         extent.flush();
 
     }
 
-    @Test(priority = 4, dependsOnMethods = {"createGist"})
+    @Test(priority = 4, dependsOnMethods = {"createNewGist"})
     public void UpdateGist() {
 
-        Response response = given()
+        Response response=
+                given()
                 .header("Accept", "application/vnd.github?+json")
                 .header("Authorization", token)
-                .and()
                 .body(payloadUpdateGist)
                 .contentType(ContentType.JSON)
                 .when()
@@ -118,13 +131,14 @@ public class myTest {
                 .then()
                 .extract().response();
 
-        gistId =  response.getBody().jsonPath().get("id");
+        gistId = response.getBody().jsonPath().get("id");
+        String agistId = response.getBody().jsonPath().get("files[0].README.md[0].content");
+        System.out.println(agistId);
 
-        assertEquals(200, response.statusCode());
 
         extent.attachReporter(spark);
-        extent.createTest("MyFirstTest")
-                .log(Status.PASS, "It is possible to get a request");
+        extent.createTest("UpdateGist")
+                .log(Status.PASS, "It is possible to update gist created previously");
         extent.flush();
 
     }
@@ -144,8 +158,8 @@ public class myTest {
         assertEquals(204, response.statusCode());
 
         extent.attachReporter(spark);
-        extent.createTest("MyFirstTest")
-                .log(Status.PASS, "It is possible to get a request");
+        extent.createTest("DeleteGist")
+                .log(Status.PASS, "It is possible to delete gist created previously");
         extent.flush();
     }
 
@@ -164,8 +178,68 @@ public class myTest {
         assertEquals(404, response.statusCode());
 
         extent.attachReporter(spark);
-        extent.createTest("MyFirstTest")
-                .log(Status.PASS, "It is possible to get a request");
+        extent.createTest("CheckGistIsDeleted")
+                .log(Status.PASS, "The created gist is no longer available");
         extent.flush();
     }
+
+    @Test(priority = 7)
+    public void StarAPublicGist() {
+
+        Response response = given()
+                .header("Accept", "application/vnd.github?+json")
+                .header("Authorization", token)
+                .contentType(ContentType.JSON)
+                .when()
+                .put("/gists/1/star")
+                .then()
+                .extract().response();
+
+        assertEquals(204, response.statusCode());
+
+        extent.attachReporter(spark);
+        extent.createTest("StarAPublicGist")
+                .log(Status.PASS, "The first gist was starred");
+        extent.flush();
+    }
+
+    @Test(priority = 8)
+    public void UnstarAPublicGist() {
+
+        given()
+                .header("Accept", "application/vnd.github?+json")
+                .header("Authorization", token)
+                .contentType(ContentType.JSON)
+                .when()
+                .delete("/gists/1/star")
+                .then()
+                .assertThat().statusCode(204);
+
+        extent.attachReporter(spark);
+        extent.createTest("UnstarAPublicGist")
+                .log(Status.PASS, "The first gist was removed from starred");
+        extent.flush();
+    }
+
+    @Test(priority = 9)
+    public void ListStarredGists() {
+
+        Response response = given()
+                .header("Accept", "application/vnd.github?+json")
+                .header("Authorization", token)
+                .contentType(ContentType.JSON)
+                .when()
+                .get("/gists/starred")
+                .then()
+                .extract().response();
+
+        assertEquals("[]", response.getBody().asString());
+        System.out.println(response.getBody().asString());
+
+        extent.attachReporter(spark);
+        extent.createTest("ListStarredGists")
+                .log(Status.PASS, "The created gist is no longer available");
+        extent.flush();
+    }
+
 }
