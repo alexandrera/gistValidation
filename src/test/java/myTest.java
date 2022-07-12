@@ -143,7 +143,7 @@ public class myTest {
 
     }
 
-    @Test(priority = 5, dependsOnMethods = {"UpdateGist"})
+    @Test(priority = 5, dependsOnMethods = {"updateGist"})
     public void deleteGist() {
 
         Response response = given()
@@ -163,7 +163,7 @@ public class myTest {
         extent.flush();
     }
 
-    @Test(priority = 6, dependsOnMethods = {"DeleteGist"})
+    @Test(priority = 6, dependsOnMethods = {"deleteGist"})
     public void checkGistIsDeleted() {
 
         Response response = given()
@@ -178,7 +178,7 @@ public class myTest {
         assertEquals(404, response.statusCode());
 
         extent.attachReporter(spark);
-        extent.createTest("CheckGistIsDeleted")
+        extent.createTest("checkGistIsDeleted")
                 .log(Status.PASS, "The created gist is no longer available");
         extent.flush();
     }

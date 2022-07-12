@@ -11,6 +11,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/slf4j-nop-1.7.25.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" scope="TEST" name="Maven: io.rest-assured:rest-assured:5.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.groovy:groovy:4.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.groovy:groovy-xml:4.0.1" level="project" />

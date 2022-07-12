@@ -9,11 +9,7 @@
     <artifactId>gist</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
-<!--    <plugins>-->
-<!--        <plugin>-->
-<!--           -->
-<!--        </plugin>-->
-<!--    </plugins>-->
+
     </build>
     <dependencies>
         <dependency>
@@ -58,17 +54,9 @@
             <version>7.6.1</version>
             <scope>test</scope>
 
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -82,11 +70,7 @@
             <version>5.0.9</version>
         </dependency>
 
-
-
-
     </dependencies>
-
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
