@@ -57,7 +57,7 @@ Issues faced:
   
 ### To be improved:
  - Use the encoded token as a system variable, this way the encryption will not be necessary
- - Fix Travis CI Build
+ - Fix Travis CI Build (new branch opened to fix this issue)
 
 ### Frameworks used:
  - Rest Assured: https://rest-assured.io/
