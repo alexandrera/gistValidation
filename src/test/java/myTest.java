@@ -59,7 +59,7 @@ public class myTest {
 
         assertEquals(200, response.statusCode());
 
-        System.out.println(response.getBody().asString());
+//        System.out.println(response.getBody().asString());
 
         extent.attachReporter(spark);
         extent.createTest("listPublicGists")
@@ -81,7 +81,7 @@ public class myTest {
 
         assertEquals(200, response.statusCode());
 
-        System.out.println(response.getBody().asString());
+        //System.out.println(response.getBody().asString());
 
         extent.attachReporter(spark);
         extent.createTest("getGistListForSpecificUser")
@@ -133,7 +133,7 @@ public class myTest {
 
         gistId = response.getBody().jsonPath().get("id");
         String agistId = response.getBody().jsonPath().get("files[0].README.md[0].content");
-        System.out.println(agistId);
+       // System.out.println(agistId);
 
 
         extent.attachReporter(spark);
@@ -234,7 +234,7 @@ public class myTest {
                 .extract().response();
 
         assertEquals("[]", response.getBody().asString());
-        System.out.println(response.getBody().asString());
+       // System.out.println(response.getBody().asString());
 
         extent.attachReporter(spark);
         extent.createTest("ListStarredGists")
