@@ -55,7 +55,9 @@ Issues faced:
   
 ### To be improved:
  - Use the encoded token as a system variable, this way the encryption will not be necessary
- - Fix Travis CI Build
+ - Hide username (Account created for test purposes)
+ - Fix Travis CI Build (fixed on branch a1)
+ - Add loggers
 
 ### Frameworks used:
  - Rest Assured: https://rest-assured.io/
