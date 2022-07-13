@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="myTest" time="5.332" errors="0" skipped="0">
+<testsuite tests="9" failures="0" name="myTest" time="4.936" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.3.1+2-LTS-6"/>
@@ -61,13 +61,13 @@
     <property name="sun.stdout.encoding" value="cp850"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="myTest" name="listPublicGists" time="1.788"/>
-  <testcase classname="myTest" name="getGistListForSpecificUser" time="0.598"/>
-  <testcase classname="myTest" name="createNewGist" time="0.974"/>
-  <testcase classname="myTest" name="UpdateGist" time="0.534"/>
-  <testcase classname="myTest" name="DeleteGist" time="0.428"/>
-  <testcase classname="myTest" name="CheckGistIsDeleted" time="0.205"/>
-  <testcase classname="myTest" name="StarAPublicGist" time="0.299"/>
-  <testcase classname="myTest" name="UnstarAPublicGist" time="0.304"/>
-  <testcase classname="myTest" name="ListStarredGists" time="0.202"/>
+  <testcase classname="myTest" name="listPublicGists" time="1.579"/>
+  <testcase classname="myTest" name="getGistListForSpecificUser" time="0.219"/>
+  <testcase classname="myTest" name="createNewGist" time="1.062"/>
+  <testcase classname="myTest" name="updateGist" time="0.606"/>
+  <testcase classname="myTest" name="deleteGist" time="0.383"/>
+  <testcase classname="myTest" name="checkGistIsDeleted" time="0.22"/>
+  <testcase classname="myTest" name="starAPublicGist" time="0.333"/>
+  <testcase classname="myTest" name="unstarAPublicGist" time="0.312"/>
+  <testcase classname="myTest" name="listStarredGists" time="0.222"/>
 </testsuite>

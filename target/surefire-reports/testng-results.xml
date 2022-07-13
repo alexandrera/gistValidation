@@ -2,51 +2,51 @@
 <testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-07-11T15:01:34 BRT" name="myTest" finished-at="2022-07-11T15:01:40 BRT" duration-ms="5623">
+  <suite started-at="2022-07-12T08:19:22 BRT" name="myTest" finished-at="2022-07-12T08:19:28 BRT" duration-ms="5205">
     <groups>
     </groups>
-    <test started-at="2022-07-11T15:01:34 BRT" name="Command line test" finished-at="2022-07-11T15:01:40 BRT" duration-ms="5623">
+    <test started-at="2022-07-12T08:19:22 BRT" name="Command line test" finished-at="2022-07-12T08:19:28 BRT" duration-ms="5205">
       <class name="myTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:myTest@708f5957]" started-at="2022-07-11T15:01:34 BRT" name="setup" finished-at="2022-07-11T15:01:35 BRT" duration-ms="219" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:22 BRT" name="setup" finished-at="2022-07-12T08:19:23 BRT" duration-ms="241" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="listPublicGists()[pri:1, instance:myTest@708f5957]" started-at="2022-07-11T15:01:35 BRT" name="listPublicGists" finished-at="2022-07-11T15:01:36 BRT" duration-ms="1803" status="PASS">
+        <test-method signature="listPublicGists()[pri:1, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:23 BRT" name="listPublicGists" finished-at="2022-07-12T08:19:24 BRT" duration-ms="1577" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- listPublicGists -->
-        <test-method signature="getGistListForSpecificUser()[pri:2, instance:myTest@708f5957]" started-at="2022-07-11T15:01:36 BRT" name="getGistListForSpecificUser" finished-at="2022-07-11T15:01:37 BRT" duration-ms="614" status="PASS">
+        <test-method signature="getGistListForSpecificUser()[pri:2, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:24 BRT" name="getGistListForSpecificUser" finished-at="2022-07-12T08:19:24 BRT" duration-ms="220" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getGistListForSpecificUser -->
-        <test-method signature="createNewGist()[pri:3, instance:myTest@708f5957]" started-at="2022-07-11T15:01:37 BRT" name="createNewGist" finished-at="2022-07-11T15:01:38 BRT" duration-ms="974" status="PASS">
+        <test-method signature="createNewGist()[pri:3, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:24 BRT" name="createNewGist" finished-at="2022-07-12T08:19:26 BRT" duration-ms="1063" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createNewGist -->
-        <test-method signature="UpdateGist()[pri:4, instance:myTest@708f5957]" started-at="2022-07-11T15:01:38 BRT" name="UpdateGist" finished-at="2022-07-11T15:01:39 BRT" depends-on-methods="myTest.createNewGist" duration-ms="534" status="PASS">
+        <test-method signature="updateGist()[pri:4, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:26 BRT" name="updateGist" finished-at="2022-07-12T08:19:26 BRT" depends-on-methods="myTest.createNewGist" duration-ms="607" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UpdateGist -->
-        <test-method signature="DeleteGist()[pri:5, instance:myTest@708f5957]" started-at="2022-07-11T15:01:39 BRT" name="DeleteGist" finished-at="2022-07-11T15:01:39 BRT" depends-on-methods="myTest.UpdateGist" duration-ms="424" status="PASS">
+        </test-method> <!-- updateGist -->
+        <test-method signature="deleteGist()[pri:5, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:26 BRT" name="deleteGist" finished-at="2022-07-12T08:19:27 BRT" depends-on-methods="myTest.updateGist" duration-ms="383" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DeleteGist -->
-        <test-method signature="CheckGistIsDeleted()[pri:6, instance:myTest@708f5957]" started-at="2022-07-11T15:01:39 BRT" name="CheckGistIsDeleted" finished-at="2022-07-11T15:01:39 BRT" depends-on-methods="myTest.DeleteGist" duration-ms="205" status="PASS">
+        </test-method> <!-- deleteGist -->
+        <test-method signature="checkGistIsDeleted()[pri:6, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:27 BRT" name="checkGistIsDeleted" finished-at="2022-07-12T08:19:27 BRT" depends-on-methods="myTest.deleteGist" duration-ms="219" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CheckGistIsDeleted -->
-        <test-method signature="StarAPublicGist()[pri:7, instance:myTest@708f5957]" started-at="2022-07-11T15:01:39 BRT" name="StarAPublicGist" finished-at="2022-07-11T15:01:40 BRT" duration-ms="299" status="PASS">
+        </test-method> <!-- checkGistIsDeleted -->
+        <test-method signature="starAPublicGist()[pri:7, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:27 BRT" name="starAPublicGist" finished-at="2022-07-12T08:19:27 BRT" duration-ms="333" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- StarAPublicGist -->
-        <test-method signature="UnstarAPublicGist()[pri:8, instance:myTest@708f5957]" started-at="2022-07-11T15:01:40 BRT" name="UnstarAPublicGist" finished-at="2022-07-11T15:01:40 BRT" duration-ms="304" status="PASS">
+        </test-method> <!-- starAPublicGist -->
+        <test-method signature="unstarAPublicGist()[pri:8, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:27 BRT" name="unstarAPublicGist" finished-at="2022-07-12T08:19:27 BRT" duration-ms="312" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UnstarAPublicGist -->
-        <test-method signature="ListStarredGists()[pri:9, instance:myTest@708f5957]" started-at="2022-07-11T15:01:40 BRT" name="ListStarredGists" finished-at="2022-07-11T15:01:40 BRT" duration-ms="202" status="PASS">
+        </test-method> <!-- unstarAPublicGist -->
+        <test-method signature="listStarredGists()[pri:9, instance:myTest@4a94ee4]" started-at="2022-07-12T08:19:27 BRT" name="listStarredGists" finished-at="2022-07-12T08:19:28 BRT" duration-ms="222" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ListStarredGists -->
+        </test-method> <!-- listStarredGists -->
       </class> <!-- myTest -->
     </test> <!-- Command line test -->
   </suite> <!-- myTest -->
