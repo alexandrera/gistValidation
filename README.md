@@ -1,6 +1,7 @@
 # gistValidation Project
 
-[![Build Status](https://app.travis-ci.com/alexandrera/gistValidation.svg?branch=main)](https://app.travis-ci.com/alexandrera/gistValidation)
+Main: [![Build Status](https://app.travis-ci.com/alexandrera/gistValidation.svg?branch=main)](https://app.travis-ci.com/alexandrera/gistValidation)
+Branch a1: [![Build Status](https://app.travis-ci.com/alexandrera/gistValidation.svg?branch=a1)](https://app.travis-ci.com/alexandrera/gistValidation)
 
 ## Description:
 The idea with this project is to validate a REST API by using most used HTTP methods like GET, POST, PATCH, PUT, DELETE with rest assured framework and TestNG
