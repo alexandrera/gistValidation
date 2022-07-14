@@ -55,7 +55,7 @@ Issues faced:
   
   ![image](https://user-images.githubusercontent.com/15263937/178340061-51b11679-b324-4c00-a77e-408426ad2808.png)
   
-  4. Travis CI integration was implemented but build is failing due to an error related to maven surefire
+  4. Travis CI integration implemented
   
 ### To be improved:
  - Use the encoded token as a system variable, this way the encryption will not be necessary
