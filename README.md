@@ -15,11 +15,6 @@ Note 3: IntelliJ Idea Community version was used to develop
 
 Note 4: The way the project is, it is possible to just clone it and execute it after OS Settings in Instructions below:
 
-Issues faced:
- - Initially it was used JUnit and there is a limitation with variable within the test methods. It is not possible to use variables from different methods.
- - TestNG was used instead since it has an annotation to workaround it (https://testng.org/doc/documentation-main.html#dependencies-with-annotations)
- - Github automatically removes the bearer token generated in case it is used in the code (which makes sense) so the bearer was hidden from the code using Base64 to decoded this data. It makes more sense to use it as a system variable in order to make authentication safer since we can simple make a print of the decoded string.
- 
 ## Instructions:
 
 ### OS Settings:
@@ -56,11 +51,15 @@ Issues faced:
   ![image](https://user-images.githubusercontent.com/15263937/178340061-51b11679-b324-4c00-a77e-408426ad2808.png)
   
   4. Travis CI integration implemented
+
+Issues faced:
+ - Initially it was used JUnit and there is a limitation with variable within the test methods. It is not possible to use variables from different methods.
+ - TestNG was used instead since it has an annotation to workaround it (https://testng.org/doc/documentation-main.html#dependencies-with-annotations)
+ - Github automatically removes the bearer token generated in case it is used in the code (which makes sense) so the bearer was hidden from the code using Base64 to decoded this data. It makes more sense to use it as a system variable in order to make authentication safer since we can simple make a print of the decoded string.
   
 ### To be improved:
- - Use the encoded token as a system variable, this way the encryption will not be necessary
- - Hide username (Account created for test purposes)
- - Fix Travis CI Build (Fixed)
+ - Change base64 to environment variable or a property file
+ - Hide username (Account created for test purposes only)
  - Add loggers
 
 ### Frameworks used:
